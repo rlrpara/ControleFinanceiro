@@ -1,7 +1,10 @@
-﻿namespace ControleFinanceiro.Mobile.Models;
+﻿using LiteDB;
+
+namespace ControleFinanceiro.Mobile.Models;
 
 public class Transacao
 {
+    [BsonId]
     public int Codigo { get; set; }
     public ETipo Tipo { get; set; }
     public string? Nome { get; set; }
