@@ -12,7 +12,7 @@ public class TransacaoRepository : ITransacaoRepository
     #endregion
 
     #region [Constructor]
-    public TransacaoRepository() => _database = new LiteDatabase("Filename=");
+    public TransacaoRepository(LiteDatabase liteDatabase) => _database = liteDatabase;
     #endregion
 
     #region [Public Methods]

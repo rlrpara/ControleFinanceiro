@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using ControleFinanceiro.Mobile.ExtensionMethods;
+using Microsoft.Extensions.Logging;
 
 namespace ControleFinanceiro.Mobile
 {
@@ -13,7 +14,8 @@ namespace ControleFinanceiro.Mobile
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+                })
+                .RegisterDatabaseRepositories();
 
 #if DEBUG
     		builder.Logging.AddDebug();
