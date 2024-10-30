@@ -1,6 +1,6 @@
 ﻿using MinhasFinancas.Domain.Enum;
 
-namespace MinhasFinancas.Domain.Entities;
+namespace MinhasFinancas.Domain.ValueObjects;
 
 public class ParametrosConexao
 {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Data.Sqlite;
-using MinhasFinancas.Domain.Entities;
 using MinhasFinancas.Domain.Enum;
+using MinhasFinancas.Domain.ValueObjects;
 using System.Data;
 
 namespace MinhasFinancas.Infra.Data.Context;

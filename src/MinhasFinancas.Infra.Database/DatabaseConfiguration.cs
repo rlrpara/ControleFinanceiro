@@ -2,6 +2,7 @@
 using MinhasFinancas.Domain.Entities;
 using MinhasFinancas.Domain.Enum;
 using MinhasFinancas.Domain.Interface;
+using MinhasFinancas.Domain.ValueObjects;
 using MinhasFinancas.Infra.Data.Context;
 using MinhasFinancas.Infra.Data.Interface;
 using MinhasFinancas.Infra.Data.Repositories;

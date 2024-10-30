@@ -1,4 +1,4 @@
-﻿using MinhasFinancas.Domain.Entities;
+﻿using MinhasFinancas.Domain.ValueObjects;
 using System.Data;
 
 namespace MinhasFinancas.Infra.Data.Context;

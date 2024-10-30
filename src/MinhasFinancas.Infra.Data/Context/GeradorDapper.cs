@@ -1,6 +1,6 @@
-﻿using MinhasFinancas.Domain.Entities;
-using MinhasFinancas.Domain.Entities.Base;
+﻿using MinhasFinancas.Domain.Entities.Base;
 using MinhasFinancas.Domain.Enum;
+using MinhasFinancas.Domain.ValueObjects;
 using MinhasFinancas.Infra.Data.Interface;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
