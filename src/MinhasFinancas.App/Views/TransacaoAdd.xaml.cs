@@ -44,7 +44,7 @@ public partial class TransacaoAdd : ContentPage
 
         return valid;
     }
-    private Transacao OnterTransacao() => new Transacao
+    private Transacao ObterTransacao() => new Transacao
     {
         Nome = txtNome.Text,
         DataLancamento = dtpLancamento.Date,
@@ -74,7 +74,7 @@ public partial class TransacaoAdd : ContentPage
         if (!isValidData())
             return;
 
-        _transacaoService.Adicionar(OnterTransacao());
+        _transacaoService.Adicionar(ObterTransacao());
 
         Navigation.PopModalAsync();
 

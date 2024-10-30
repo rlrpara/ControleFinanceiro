@@ -1,31 +1,34 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MinhasFinancas.App.Views.TransacaoAdd"
-             Title="Adicionar">
+<ContentPage
+    x:Class="MinhasFinancas.App.Views.TransacaoAdd"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Adicionar">
     <VerticalStackLayout BackgroundColor="White" Spacing="10">
         <Border
+            Margin="15"
+            Padding="15"
             BackgroundColor="Black"
             Stroke="Transparent"
-            Padding="15"
-            StrokeShape="RoundRectangle 30"
-            Margin="15">
+            StrokeShape="RoundRectangle 30">
             <Grid ColumnDefinitions="*, 30">
-                <Label TextColor="Red" x:Name="lblError" IsVisible="false" />
-                <Label 
-                    Text="Novo"
-                    VerticalOptions="Center" 
-                    HorizontalOptions="Center"
+                <Label
+                    x:Name="lblError"
+                    IsVisible="false"
+                    TextColor="Red" />
+                <Label
                     Grid.Column="0"
-                    TextColor="White"
-                />
-                <Image
-                    Source="close.png"
-                    VerticalOptions="Center" 
                     HorizontalOptions="Center"
+                    Text="Novo"
+                    TextColor="White"
+                    VerticalOptions="Center" />
+                <Image
                     Grid.Column="1"
-                    WidthRequest="17"
-                    HeightRequest="17">
+                    HeightRequest="17"
+                    HorizontalOptions="Center"
+                    Source="close.png"
+                    VerticalOptions="Center"
+                    WidthRequest="17">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
                     </Image.GestureRecognizers>
@@ -33,51 +36,47 @@
             </Grid>
         </Border>
 
-        <Grid ColumnDefinitions="*,*" Margin="30, 0">
+        <Grid Margin="30,0" ColumnDefinitions="*,*">
             <RadioButton
                 x:Name="rbReceita"
-                Content="Receita"
                 Grid.Column="0"
+                Content="Receita"
                 IsChecked="True"
-                TextColor="Black"
-            />
+                TextColor="Black" />
             <RadioButton
                 x:Name="rbDespesa"
+                Grid.Column="1"
                 Content="Despesa"
                 HorizontalOptions="End"
-                Grid.Column="1"
-                TextColor="Black"
-            />
+                TextColor="Black" />
         </Grid>
 
         <Entry
             x:Name="txtNome"
+            Margin="15,0"
+            Keyboard="Chat"
             Placeholder="Nome"
-            TextColor="Black"
-            Margin="15, 0"
-        />
-        
+            TextColor="Black" />
+
         <DatePicker
             x:Name="dtpLancamento"
-            TextColor="Black"
-            Margin="15, 0"
-        />
-        
+            Margin="15,0"
+            TextColor="Black" />
+
         <Entry
             x:Name="txtValor"
+            Margin="15,0"
+            Keyboard="Numeric"
             Placeholder="Valor"
-            TextColor="Black"
-            Margin="15, 0"
-        />
+            TextColor="Black" />
 
         <Button
             x:Name="btnSalvar"
-            Text="Salvar"
-            Margin="15, 0"
-            TextColor="Black"
-            HorizontalOptions="Center"
+            Margin="15,0"
             Clicked="btnSalvar_Clicked"
-        />
+            HorizontalOptions="Center"
+            Text="Salvar"
+            TextColor="Black" />
 
     </VerticalStackLayout>
 </ContentPage>
