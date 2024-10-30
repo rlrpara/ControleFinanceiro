@@ -54,6 +54,18 @@ public partial class TransacaoAdd : ContentPage
         DataAtualizacao = DateTime.Now,
         Ativo = true
     };
+    private void Salvar()
+    {
+        if (!isValidData())
+            return;
+
+        _transacaoService.Adicionar(ObterTransacao());
+
+        Navigation.PopModalAsync();
+
+        var count = _transacaoService.ObterTodos().Count();
+        Application.Current.MainPage.DisplayAlert("Mensagem", $"Existem {count} registro(s) no banco.", "OK");
+    }
     #endregion
 
     #region [Constructor]
@@ -68,19 +80,7 @@ public partial class TransacaoAdd : ContentPage
 
     #region [Public Methods]
     private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e) => Navigation.PopModalAsync();
-
-    private void btnSalvar_Clicked(object sender, EventArgs e)
-    {
-        if (!isValidData())
-            return;
-
-        _transacaoService.Adicionar(ObterTransacao());
-
-        Navigation.PopModalAsync();
-
-        var count = _transacaoService.ObterTodos().Count();
-        Application.Current.MainPage.DisplayAlert("Mensagem", $"Existem {count} registro(s) no banco.", "OK");
-    }
+    private void btnSalvar_Clicked(object sender, EventArgs e) => Salvar();
 
     #endregion
 }
