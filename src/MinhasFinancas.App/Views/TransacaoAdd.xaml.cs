@@ -25,12 +25,12 @@ public partial class TransacaoAdd : ContentPage
             _mensagem.AppendLine("O campo 'NOME' deve ser preechido");
             valid = false;
         }
-        else if (string.IsNullOrWhiteSpace(txtValor.Text))
+        if (string.IsNullOrWhiteSpace(txtValor.Text))
         {
             _mensagem.AppendLine("O campo 'VALOR' deve ser preechido");
             valid = false;
         }
-        else if(!double.TryParse(txtValor.Text, out double valorSaida))
+        if(!double.TryParse(txtValor.Text, out double valorSaida))
         {
             _mensagem.AppendLine("O campo 'VALOR' é inválido");
             valid = false;
@@ -38,8 +38,8 @@ public partial class TransacaoAdd : ContentPage
 
         if (!valid)
         {
-            lblError.Text = _mensagem.ToString();
             lblError.IsVisible = !valid;
+            lblError.Text = _mensagem.ToString();
         }
 
         return valid;

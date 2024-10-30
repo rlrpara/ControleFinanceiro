@@ -4,6 +4,9 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     Title="Adicionar">
+    <ContentPage.Resources>
+        <ResourceDictionary Source="/Resources/Styles/Colors.xaml" />
+    </ContentPage.Resources>
     <VerticalStackLayout BackgroundColor="White" Spacing="10">
         <Border
             Margin="15"
@@ -12,10 +15,6 @@
             Stroke="Transparent"
             StrokeShape="RoundRectangle 30">
             <Grid ColumnDefinitions="*, 30">
-                <Label
-                    x:Name="lblError"
-                    IsVisible="false"
-                    TextColor="Red" />
                 <Label
                     Grid.Column="0"
                     HorizontalOptions="Center"
@@ -36,13 +35,18 @@
             </Grid>
         </Border>
 
+        <Label
+            x:Name="lblError"
+            IsVisible="false"
+            TextColor="Red" />
+
         <Grid Margin="30,0" ColumnDefinitions="*,*">
             <RadioButton
                 x:Name="rbReceita"
                 Grid.Column="0"
                 Content="Receita"
                 IsChecked="True"
-                TextColor="Black" />
+                TextColor="{StaticResource Black}" />
             <RadioButton
                 x:Name="rbDespesa"
                 Grid.Column="1"
@@ -76,7 +80,7 @@
             Clicked="btnSalvar_Clicked"
             HorizontalOptions="Center"
             Text="Salvar"
-            TextColor="Black" />
+            TextColor="{StaticResource Tertiary}" />
 
     </VerticalStackLayout>
 </ContentPage>
