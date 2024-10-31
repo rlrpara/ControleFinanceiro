@@ -48,13 +48,12 @@
             StrokeThickness="0">
             <Grid ColumnDefinitions="*, 80" RowDefinitions="Auto, Auto, 30, Auto, Auto">
                 <Label
-                    x:Name="lblSaldo"
                     Padding="11,0"
                     FontSize="18"
                     Text="Saldo"
                     TextColor="#979797" />
                 <Label
-                    x:Name="lblValor"
+                    x:Name="lblSaldo"
                     Grid.Row="1"
                     Padding="11,0"
                     FontSize="36"
@@ -75,14 +74,13 @@
                     WidthRequest="54" />
 
                 <Label
-                    x:Name="lblReceita"
                     Grid.Row="3"
                     Padding="11,0"
                     FontSize="10"
                     Text="Receitas"
                     TextColor="#979797" />
                 <Label
-                    x:Name="lblValorReceita"
+                    x:Name="lblReceita"
                     Grid.Row="4"
                     Padding="11,0"
                     FontSize="12"
@@ -90,14 +88,13 @@
                     TextColor="#FFF" />
 
                 <Label
-                    x:Name="lblDespesa"
                     Grid.Row="3"
                     Grid.Column="1"
                     FontSize="10"
                     Text="Despesas"
                     TextColor="#979797" />
                 <Label
-                    x:Name="lblValorDespesa"
+                    x:Name="lblDespesa"
                     Grid.Row="4"
                     Grid.Column="1"
                     FontSize="12"

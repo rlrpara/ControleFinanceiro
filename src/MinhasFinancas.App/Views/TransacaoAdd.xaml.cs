@@ -1,3 +1,4 @@
+using CommunityToolkit.Mvvm.Messaging;
 using MinhasFinancas.Domain.Entities;
 using MinhasFinancas.Domain.Enum;
 using MinhasFinancas.Domain.Interface;
@@ -62,6 +63,8 @@ public partial class TransacaoAdd : ContentPage
         _transacaoService.Adicionar(ObterTransacao());
 
         Navigation.PopModalAsync();
+
+        WeakReferenceMessenger.Default.Send("");
 
         var count = _transacaoService.ObterTodos().Count();
         Application.Current.MainPage.DisplayAlert("Mensagem", $"Existem {count} registro(s) no banco.", "OK");

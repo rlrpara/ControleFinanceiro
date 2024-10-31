@@ -1,3 +1,5 @@
+using CommunityToolkit.Mvvm.Messaging;
+using MinhasFinancas.Domain.Enum;
 using MinhasFinancas.Domain.Interface;
 using MinhasFinancas.Service.Interface;
 using MinhasFinancas.Service.Service;
@@ -14,7 +16,16 @@ public partial class TransacaoLista : ContentPage
     #region [Private methods]
     private void ObterDadosGrid()
     {
-        cvTransacao.ItemsSource = _transacaoService.ObterTodos();
+        var itens = _transacaoService.ObterTodos();
+        cvTransacao.ItemsSource = itens;
+
+        double receitas = itens.Where(x => x.Tipo == (int)TipoTransacao.Entrada).Sum(a => a.Valor);
+        double despesas = itens.Where(x => x.Tipo == (int)TipoTransacao.Saida).Sum(a => a.Valor);
+        double saldo = receitas - despesas;
+
+        lblReceita.Text = receitas.ToString("C");
+        lblDespesa.Text = despesas.ToString("C");
+        lblSaldo.Text = saldo.ToString("C");
     }
     #endregion
 
@@ -27,6 +38,8 @@ public partial class TransacaoLista : ContentPage
         _transacaoService = new TransacaoService(baseRepository);
 
         ObterDadosGrid();
+
+        WeakReferenceMessenger.Default.Register<string>(this, (e, msg) => { ObterDadosGrid(); });
     }
     #endregion
 
