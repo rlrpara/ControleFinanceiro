@@ -7,29 +7,32 @@
     NavigationPage.HasNavigationBar="False">
     <VerticalStackLayout>
 
-        <Grid Padding="15" ColumnDefinitions="50, *, Auto">
-            <Label
-                BackgroundColor="#FFF"
-                FontSize="20"
-                HorizontalOptions="Center"
-                Text="S"
-                TextColor="#000"
-                VerticalOptions="Center" />
+        <CollectionView x:Name="cvTransacao">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="15" ColumnDefinitions="50, *, Auto">
+                        <Label
+                            BackgroundColor="#FFF"
+                            FontSize="20"
+                            HorizontalOptions="Center"
+                            Text="S"
+                            TextColor="#000"
+                            VerticalOptions="Center" />
 
-            <VerticalStackLayout Grid.Column="1">
-                <Label Text="10/10/2023" TextColor="#BABABA" />
-                <Label Text="Salário" TextColor="#000" />
-            </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1">
+                            <Label Text="{Binding DataLancamento, StringFormat='{0:dd/MM/yyyy}'}" TextColor="#BABABA" />
+                            <Label Text="{Binding Nome}" TextColor="#000" />
+                        </VerticalStackLayout>
 
-            <Label
-                Grid.Column="2"
-                Text="R$ 3.600,00"
-                TextColor="{StaticResource Tertiary}"
-                VerticalOptions="Center" />
-        </Grid>
-
-
-
+                        <Label
+                            Grid.Column="2"
+                            Text="{Binding Valor, StringFormat='{0:C}'}"
+                            TextColor="{StaticResource Tertiary}"
+                            VerticalOptions="Center" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
 
         <Button
             x:Name="EditarRegistro"
