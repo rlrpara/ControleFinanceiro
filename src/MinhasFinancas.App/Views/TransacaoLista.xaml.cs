@@ -37,7 +37,7 @@ public partial class TransacaoLista : ContentPage
     }
     private void EditarRegistro_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushModalAsync(new TransacaoEdit());
+        Navigation.PushModalAsync(new TransacaoEdit(_baseRepository));
     }
 
     #endregion
