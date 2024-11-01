@@ -1,0 +1,17 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/src/ControleFinanceiro.CrossCutting.Util/bin/Debug/net8.0
+/src/ControleFinanceiro.CrossCutting.Util/obj
+/src/ControleFinanceiro.Domain/bin/Debug/net8.0
+/src/ControleFinanceiro.Domain/obj
+/src/ControleFinanceiro.Infra.Data/bin/Debug/net8.0
+/src/ControleFinanceiro.Infra.Data/obj
+/src/ControleFinanceiro.Infra.Database/bin/Debug/net8.0
+/src/ControleFinanceiro.Infra.Database/obj
+/src/ControleFinanceiro.Mobile/bin/Debug
+/src/ControleFinanceiro.Mobile/obj
+/src/ControleFinanceiro.Service/bin/Debug/net8.0
+/src/ControleFinanceiro.Service/obj
