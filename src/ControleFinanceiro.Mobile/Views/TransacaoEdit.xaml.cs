@@ -34,12 +34,11 @@ public partial class TransacaoEdit : ContentPage
     public void SetTransacaoToEdit(Transacao transacao)
     {
         _transacao = transacao;
-        txtNome.Text = transacao.Nome;
-        dtpData.Date = transacao.DataLancamento ?? new DateTime();
-        rbReceita.IsChecked = (ETipoTransacao)transacao.Tipo == ETipoTransacao.Entrada;
-        rbReceita.IsChecked = (ETipoTransacao)transacao.Tipo == ETipoTransacao.Saida;
-        txtValor.Text = transacao.Valor.ToString();
-
+        txtNome.Text = _transacao.Nome;
+        dtpData.Date = _transacao.DataLancamento ?? new DateTime();
+        rbReceita.IsChecked = (ETipoTransacao)_transacao.Tipo == ETipoTransacao.Entrada;
+        rbReceita.IsChecked = (ETipoTransacao)_transacao.Tipo == ETipoTransacao.Saida;
+        txtValor.Text = _transacao.Valor.ToString();
     }
     #endregion
 }

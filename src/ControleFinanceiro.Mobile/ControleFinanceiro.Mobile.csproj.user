@@ -6,6 +6,9 @@
     <ActiveDebugProfile>Xiaomi 23106RN0DA (Android 14.0 - API 34)</ActiveDebugProfile>
     <SelectedPlatformGroup>PhysicalDevice</SelectedPlatformGroup>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
+  </PropertyGroup>
   <ItemGroup>
     <MauiXaml Update="Views\TransacaoAdd.xaml">
       <SubType>Designer</SubType>

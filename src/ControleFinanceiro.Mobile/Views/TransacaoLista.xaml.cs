@@ -5,6 +5,7 @@ using ControleFinanceiro.Domain.Interfaces;
 using ControleFinanceiro.Service.Interface;
 using ControleFinanceiro.Service.Service;
 using System.Text;
+using System.Transactions;
 
 namespace ControleFinanceiro.Mobile.Views;
 
@@ -48,11 +49,16 @@ public partial class TransacaoLista : ContentPage
     #region [Public Methods]
     private void NovoRegistro_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushModalAsync(new TransacaoAdd(_baseRepository));
+        var TransacaoAdd = Handler.MauiContext.Services.GetService<TransacaoAdd>();
+        Navigation.PushModalAsync(TransacaoAdd);
     }
     private void TapGestureRecognizer_Tapped_To_TransactionEdit(object sender, TappedEventArgs e)
     {
-        Navigation.PushModalAsync(new TransacaoEdit(_baseRepository));
+        var TransacaoEdit = Handler.MauiContext.Services.GetService<TransacaoEdit>();
+        var transacao = (Transacao)((TapGestureRecognizer)((Grid)sender).GestureRecognizers[0]).CommandParameter;
+        TransacaoEdit.SetTransacaoToEdit(transacao);
+
+        Navigation.PushModalAsync(TransacaoEdit);
     }
 
     #endregion
