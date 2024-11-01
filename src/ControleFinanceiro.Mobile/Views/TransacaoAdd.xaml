@@ -29,7 +29,7 @@
                     VerticalOptions="Center"
                     WidthRequest="17">
                     <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                        <TapGestureRecognizer Tapped="TapGestureRecognizerTapped_To_Close" />
                     </Image.GestureRecognizers>
                 </Image>
             </Grid>

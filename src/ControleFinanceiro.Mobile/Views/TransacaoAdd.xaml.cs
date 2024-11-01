@@ -45,7 +45,7 @@ public partial class TransacaoAdd : ContentPage
 
         return valid;
     }
-    private Transacao ObterTransacao() => new Transacao
+    private Transacao ObterTransacao() => new()
     {
         Nome = txtNome.Text,
         DataLancamento = dtpLancamento.Date,
@@ -82,7 +82,7 @@ public partial class TransacaoAdd : ContentPage
     #endregion
 
     #region [Public Methods]
-    private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e) => Navigation.PopModalAsync();
+    private void TapGestureRecognizerTapped_To_Close(object sender, TappedEventArgs e) => Navigation.PopModalAsync();
     private void btnSalvar_Clicked(object sender, EventArgs e) => Salvar();
 
     #endregion

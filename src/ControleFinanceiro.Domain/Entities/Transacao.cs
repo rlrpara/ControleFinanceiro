@@ -6,6 +6,9 @@ namespace ControleFinanceiro.Domain.Entities;
 [Table("TRANSACAO")]
 public class Transacao : EntityBase
 {
+    private double _valor;
+
+
     [Nota()]
     [Column(name: "TIPO", Order = 2)]
     public int Tipo { get; set; }
@@ -20,6 +23,9 @@ public class Transacao : EntityBase
 
     [Nota()]
     [Column(name: "VALOR", Order = 5)]
-    public double Valor { get; set; }
-
+    public double Valor
+    {
+        get { return _valor; }
+        set { _valor = Convert.ToDouble(value.ToString()); }
+    }
 }

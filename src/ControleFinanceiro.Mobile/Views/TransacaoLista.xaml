@@ -24,11 +24,6 @@
 
                         <VerticalStackLayout Grid.Column="1">
                             <Label
-                                x:Name="txtCodigo"
-                                IsVisible="True"
-                                Text="{Binding Codigo}"
-                                TextColor="#000" />
-                            <Label
                                 x:Name="txtNome"
                                 Text="{Binding Nome}"
                                 TextColor="#000" />

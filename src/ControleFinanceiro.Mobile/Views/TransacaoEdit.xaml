@@ -26,11 +26,16 @@
                     VerticalOptions="Center"
                     WidthRequest="17">
                     <Image.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                        <TapGestureRecognizer Tapped="TapGestureRecognizerTapped_To_Close" />
                     </Image.GestureRecognizers>
                 </Image>
             </Grid>
         </Border>
+
+        <Label
+            x:Name="lblError"
+            IsVisible="false"
+            TextColor="Red" />
 
         <Grid Margin="30,0" ColumnDefinitions="*,*">
             <RadioButton
@@ -38,7 +43,7 @@
                 Grid.Column="0"
                 Content="Receita"
                 IsChecked="True"
-                TextColor="Black" />
+                TextColor="{StaticResource Black}" />
             <RadioButton
                 x:Name="rbDespesa"
                 Grid.Column="1"
@@ -50,26 +55,29 @@
         <Entry
             x:Name="txtNome"
             Margin="15,0"
+            Keyboard="Chat"
             Placeholder="Nome"
             TextColor="Black" />
 
         <DatePicker
-            x:Name="dtpData"
+            x:Name="dtpLancamento"
             Margin="15,0"
             TextColor="Black" />
 
         <Entry
             x:Name="txtValor"
             Margin="15,0"
+            Keyboard="Numeric"
             Placeholder="Valor"
             TextColor="Black" />
 
         <Button
+            x:Name="btnSalvar"
             Margin="15,0"
-            BackgroundColor="Black"
+            Clicked="btnSalvar_Clicked"
             HorizontalOptions="Center"
             Text="Salvar"
-            TextColor="White" />
+            TextColor="{StaticResource Tertiary}" />
 
     </VerticalStackLayout>
 </ContentPage>
