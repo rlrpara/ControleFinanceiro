@@ -6,20 +6,38 @@ namespace ControleFinanceiro.Domain.Entities;
 [Table("TRANSACAO")]
 public class Transacao : EntityBase
 {
+    #region [Private properties]
+    private int _tipo;
     private double _valor;
+    private string? _nome;
+    private DateTime? _dataLancamento;
+    #endregion
 
 
+    #region [Public methods]
     [Nota()]
     [Column(name: "TIPO", Order = 2)]
-    public int Tipo { get; set; }
+    public int Tipo
+    {
+        get { return _tipo; }
+        set { _tipo = value; }
+    }
 
     [Nota()]
     [Column(name: "NOME", Order = 3)]
-    public string? Nome { get; set; }
+    public string? Nome
+    {
+        get { return _nome; }
+        set { _nome = value; }
+    }
 
     [Nota()]
     [Column(name: "DATA_LANCAMENTO", Order = 4)]
-    public DateTime? DataLancamento { get; set; }
+    public DateTime? DataLancamento
+    {
+        get { return _dataLancamento; }
+        set { _dataLancamento = value; }
+    }
 
     [Nota()]
     [Column(name: "VALOR", Order = 5)]
@@ -28,4 +46,5 @@ public class Transacao : EntityBase
         get { return _valor; }
         set { _valor = Convert.ToDouble(value.ToString()); }
     }
+    #endregion
 }
