@@ -31,13 +31,23 @@ public class GeradorDapper : IGeradorDapper
     private string? TipoPropriedade(PropertyInfo item, int? tamanho) => item.PropertyType.Name switch
     {
         "Int32" => ObtemParaInteiro(),
-        "Int64" => "bigint DEFAULT NULL",
-        "Double" => "decimal(18,2)",
+        "Int64" => ObterParaInteiro64(),
+        "Double" => ObterParaDouble(),
         "Single" => "float",
         "DateTime" => ObterParaData(),
         "Boolean" => ObtemParaBoleando(),
         "Nullable`1" => ObtemParaTipoNulo(item.PropertyType.FullName, tamanho),
         _ => $"{((tamanho ?? 0) > 255 ? "TEXT" : $"varchar({(tamanho is null ? "255" : tamanho)}) null")}",
+    };
+    private string ObterParaInteiro64() => _parametrosConexao.TipoBanco switch
+    {
+        ETipoBanco.SqLite => "INTEGER DEFAULT NULL",
+        _ => "bigint DEFAULT NULL",
+    };
+    private string ObterParaDouble() => _parametrosConexao.TipoBanco switch
+    {
+        ETipoBanco.SqLite => "INTEGER DEFAULT NULL",
+        _ => "double(18,2)",
     };
     private string? ObterParaData() => _parametrosConexao.TipoBanco switch
     {
@@ -45,7 +55,7 @@ public class GeradorDapper : IGeradorDapper
         ETipoBanco.SqLite => "date DEFAULT CURRENT_TIMESTAMP",
         _ => "datetime DEFAULT CURRENT_TIMESTAMP"
     };
-    private string ObtemParaInteiro() => (ETipoBanco)_parametrosConexao.TipoBanco switch
+    private string ObtemParaInteiro() => _parametrosConexao.TipoBanco switch
     {
         ETipoBanco.SqlServer => "int(11) DEFAULT NULL",
         ETipoBanco.MySql => "int(11) DEFAULT NULL",
@@ -54,7 +64,7 @@ public class GeradorDapper : IGeradorDapper
         ETipoBanco.SqLite => "INTEGER DEFAULT NULL",
         _ => "int(11) DEFAULT NULL",
     };
-    private string? ObtemParaBoleando() => (ETipoBanco)_parametrosConexao.TipoBanco switch
+    private string? ObtemParaBoleando() => _parametrosConexao.TipoBanco switch
     {
         ETipoBanco.SqlServer => "tinyint(1) NOT NULL DEFAULT 1",
         ETipoBanco.MySql => "tinyint(1) NOT NULL DEFAULT 1",

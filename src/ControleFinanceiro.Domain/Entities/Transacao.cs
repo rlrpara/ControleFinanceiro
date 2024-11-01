@@ -44,7 +44,7 @@ public class Transacao : EntityBase
     public double Valor
     {
         get { return _valor; }
-        set { _valor = Convert.ToDouble(value.ToString()); }
+        set { _valor = value; }
     }
     #endregion
 }

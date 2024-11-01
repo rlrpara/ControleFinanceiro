@@ -93,7 +93,7 @@ public partial class TransacaoEdit : ContentPage
         txtNome.Text = _transacao.Nome;
         dtpLancamento.Date = _transacao.DataLancamento ?? new DateTime();
         rbReceita.IsChecked = (ETipoTransacao)_transacao.Tipo == ETipoTransacao.Entrada;
-        rbReceita.IsChecked = (ETipoTransacao)_transacao.Tipo == ETipoTransacao.Saida;
+        rbDespesa.IsChecked = (ETipoTransacao)_transacao.Tipo == ETipoTransacao.Saida;
         txtValor.Text = _transacao.Valor.ToString();
     }
     private void btnSalvar_Clicked(object sender, EventArgs e)
