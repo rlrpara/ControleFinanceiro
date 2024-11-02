@@ -50,7 +50,7 @@ public partial class TransacaoAdd : ContentPage
         Nome = txtNome.Text,
         DataLancamento = dtpLancamento.Date,
         Tipo = rbReceita.IsChecked ? (int)ETipoTransacao.Entrada : (int)ETipoTransacao.Saida,
-        Valor = double.TryParse(txtValor.Text, out double valorSaida) && valorSaida >= 0 ? valorSaida : 0,
+        Valor = txtValor.Text,
         DataCadastro = DateTime.Now,
         DataAtualizacao = DateTime.Now,
         Ativo = true

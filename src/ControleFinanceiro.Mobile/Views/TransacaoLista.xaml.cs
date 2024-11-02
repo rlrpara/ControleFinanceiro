@@ -4,8 +4,6 @@ using ControleFinanceiro.Domain.Enum;
 using ControleFinanceiro.Domain.Interfaces;
 using ControleFinanceiro.Service.Interface;
 using ControleFinanceiro.Service.Service;
-using System.Text;
-using System.Transactions;
 
 namespace ControleFinanceiro.Mobile.Views;
 
@@ -22,8 +20,8 @@ public partial class TransacaoLista : ContentPage
         var itens = _transacaoService.ObterTodos();
         cvTransacao.ItemsSource = itens;
 
-        double receitas = itens.Where(x => x.Tipo == (int)ETipoTransacao.Entrada).Sum(a => a.Valor);
-        double despesas = itens.Where(x => x.Tipo == (int)ETipoTransacao.Saida).Sum(a => a.Valor);
+        double receitas = itens.Where(x => x.Tipo == (int)ETipoTransacao.Entrada).Sum(a => Convert.ToDouble(a.Valor));
+        double despesas = itens.Where(x => x.Tipo == (int)ETipoTransacao.Saida).Sum(a => Convert.ToDouble(a.Valor));
         double saldo = receitas - despesas;
 
         lblReceita.Text = receitas.ToString("C");

@@ -8,7 +8,7 @@ public class Transacao : EntityBase
 {
     #region [Private properties]
     private int _tipo;
-    private double _valor;
+    private string _valor;
     private string? _nome;
     private DateTime? _dataLancamento;
     #endregion
@@ -41,7 +41,7 @@ public class Transacao : EntityBase
 
     [Nota()]
     [Column(name: "VALOR", Order = 5)]
-    public double Valor
+    public string Valor
     {
         get { return _valor; }
         set { _valor = value; }

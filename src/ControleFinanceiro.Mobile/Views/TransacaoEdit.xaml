@@ -62,6 +62,7 @@
         <DatePicker
             x:Name="dtpLancamento"
             Margin="15,0"
+            Format="dd/MM/yyyy"
             TextColor="Black" />
 
         <Entry
