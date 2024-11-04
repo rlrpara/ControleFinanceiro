@@ -41,7 +41,7 @@
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" TintColor="#FFFFFF" />
-		<MauiIcon Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'" Update="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg_android.svg" TintColor ="#FFFFFF" />
+		<MauiIcon Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'" Update="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg_android.svg" TintColor="#FFFFFF" />
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#FFF" BaseSize="193,180" />
@@ -68,6 +68,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\ControleFinanceiro.CrossCutting.Util\ControleFinanceiro.CrossCutting.Util.csproj" />
 	  <ProjectReference Include="..\ControleFinanceiro.Domain\ControleFinanceiro.Domain.csproj" />
 	  <ProjectReference Include="..\ControleFinanceiro.Infra.Database\ControleFinanceiro.Infra.Database.csproj" />
 	  <ProjectReference Include="..\ControleFinanceiro.Infra.Data\ControleFinanceiro.Infra.Data.csproj" />

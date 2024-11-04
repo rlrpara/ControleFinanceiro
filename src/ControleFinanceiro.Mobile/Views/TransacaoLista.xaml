@@ -3,8 +3,13 @@
     x:Class="ControleFinanceiro.Mobile.Views.TransacaoLista"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converters="clr-namespace:ControleFinanceiro.Mobile.Library.Convertes"
     Title="TransacaoLista"
     NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <converters:TRansacaoValorConverter x:Key="TRansacaoValorConverter" />
+        <converters:TransacaoValorCorConverter x:Key="TransacaoValorCorConverter" />
+    </ContentPage.Resources>
     <VerticalStackLayout>
 
         <CollectionView x:Name="cvTransacao">
@@ -36,8 +41,8 @@
                         <Label
                             x:Name="txtValor"
                             Grid.Column="2"
-                            Text="{Binding Valor, StringFormat='{0:C}'}"
-                            TextColor="{StaticResource Tertiary}"
+                            Text="{Binding ., Converter={StaticResource TRansacaoValorConverter}}"
+                            TextColor="{Binding ., Converter={StaticResource TransacaoValorCorConverter}}"
                             VerticalOptions="Center" />
                     </Grid>
                 </DataTemplate>
