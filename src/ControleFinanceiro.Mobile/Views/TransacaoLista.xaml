@@ -9,6 +9,8 @@
     <ContentPage.Resources>
         <converters:TRansacaoValorConverter x:Key="TRansacaoValorConverter" />
         <converters:TransacaoValorCorConverter x:Key="TransacaoValorCorConverter" />
+        <converters:TransacaoNomeConverter x:Key="TransacaoNomeConverter" />
+        <converters:TransacaoNomeCorConverter x:Key="TransacaoNomeCorConverter" />
     </ContentPage.Resources>
     <VerticalStackLayout>
 
@@ -19,13 +21,23 @@
                         <Grid.GestureRecognizers>
                             <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="TapGestureRecognizer_Tapped_To_TransactionEdit" />
                         </Grid.GestureRecognizers>
-                        <Label
-                            BackgroundColor="#FFF"
-                            FontSize="20"
-                            HorizontalOptions="Center"
-                            Text="S"
-                            TextColor="#000"
-                            VerticalOptions="Center" />
+                        <Border
+                            BackgroundColor="{Binding Nome, Converter={StaticResource TransacaoNomeCorConverter}}"
+                            HeightRequest="40"
+                            Stroke="Transparent"
+                            StrokeShape="RoundRectangle 20"
+                            StrokeThickness="0"
+                            WidthRequest="40">
+                            <Border.GestureRecognizers>
+                                <TapGestureRecognizer CommandParameter="{Binding .}" Tapped="TapGestureRecognizerTapped_ToDelete" />
+                            </Border.GestureRecognizers>
+                            <Label
+                                FontSize="20"
+                                HorizontalOptions="Center"
+                                Text="{Binding Nome, Converter={StaticResource TransacaoNomeConverter}}"
+                                TextColor="White"
+                                VerticalOptions="Center" />
+                        </Border>
 
                         <VerticalStackLayout Grid.Column="1">
                             <Label

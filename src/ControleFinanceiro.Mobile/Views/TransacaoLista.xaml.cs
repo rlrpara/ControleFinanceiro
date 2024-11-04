@@ -58,6 +58,17 @@ public partial class TransacaoLista : ContentPage
 
         Navigation.PushModalAsync(TransacaoEdit);
     }
+    private async void TapGestureRecognizerTapped_ToDelete(object sender, TappedEventArgs e)
+    {
+        var result = await Application.Current.MainPage.DisplayAlert("Excluir", "Tem certeza que deseja excluir?", "Sim", "Não");
 
+        if (result)
+        {
+            Transacao transacao = (Transacao)e.Parameter;
+            _transacaoService.Excluir<Transacao>(transacao.Codigo);
+
+            ObterDadosGrid();
+        }
+    }
     #endregion
 }

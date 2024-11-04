@@ -10,11 +10,11 @@ public class TransacaoValorCorConverter : IValueConverter
     {
         Transacao transacao = (Transacao)value;
         if (transacao == null)
-            return Colors.Black;
+            return Colors.White;
 
         if ((ETipoTransacao)transacao.Tipo == ETipoTransacao.Entrada)
         {
-            return Color.FromArgb("#FF939E5A");
+            return Colors.Green;
         }
         else
         {
