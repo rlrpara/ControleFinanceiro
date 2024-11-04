@@ -65,9 +65,6 @@ public partial class TransacaoAdd : ContentPage
         Navigation.PopModalAsync();
 
         WeakReferenceMessenger.Default.Send("");
-
-        var count = _transacaoService.ObterTodos().Count();
-        Application.Current.MainPage.DisplayAlert("Mensagem", $"Existem {count} registro(s) no banco.", "OK");
     }
     #endregion
 
