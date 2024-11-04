@@ -12,7 +12,7 @@
         <converters:TransacaoNomeConverter x:Key="TransacaoNomeConverter" />
         <converters:TransacaoNomeCorConverter x:Key="TransacaoNomeCorConverter" />
     </ContentPage.Resources>
-    <VerticalStackLayout>
+    <Grid RowDefinitions="*, 180">
 
         <CollectionView x:Name="cvTransacao">
             <CollectionView.ItemTemplate>
@@ -62,6 +62,7 @@
         </CollectionView>
 
         <Border
+            Grid.Row="1"
             Margin="10"
             Padding="10"
             BackgroundColor="#000"
@@ -121,5 +122,5 @@
             </Grid>
         </Border>
 
-    </VerticalStackLayout>
+    </Grid>
 </ContentPage>

@@ -63,10 +63,9 @@ public partial class TransacaoAdd : ContentPage
         _transacaoService.Adicionar(ObterTransacao());
 
         Navigation.PopModalAsync();
-
         WeakReferenceMessenger.Default.Send("");
     }
-    #endregion
+#endregion
 
     #region [Constructor]
     public TransacaoAdd(IBaseRepository baseRepository)
@@ -80,7 +79,10 @@ public partial class TransacaoAdd : ContentPage
 
     #region [Public Methods]
     private void TapGestureRecognizerTapped_To_Close(object sender, TappedEventArgs e) => Navigation.PopModalAsync();
-    private void btnSalvar_Clicked(object sender, EventArgs e) => Salvar();
+    private void btnSalvar_Clicked(object sender, EventArgs e)
+    {
+        Salvar();
+    }
 
     #endregion
 }
