@@ -65,6 +65,8 @@ public partial class TransacaoEdit : ContentPage
 
         _transacaoService.Atualizar(ObterTransacao());
 
+        txtNome.IsEnabled = false;
+        txtValor.IsEnabled = false;
         Navigation.PopModalAsync();
 
         WeakReferenceMessenger.Default.Send("");
